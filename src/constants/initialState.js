@@ -2,16 +2,15 @@
  * Initial state for the redux store
  * @type {Object}
  */
-export default {
-    error: null,
+export default {    
     loading: false,
     adminIds: [],
     admins: {},
     user: {
         authenticated: false,
-        profilePicture: null,
         id: null,
-        name: null,
+        email: null,
         token: null
-    }
+    },
+    error: null
 };

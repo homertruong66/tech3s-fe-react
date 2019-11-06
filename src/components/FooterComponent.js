@@ -3,7 +3,7 @@ import React from 'react';
 class FooterComponent extends React.Component {
     render() {
         return (
-            <span>@TECH3S All Rights reserved.</span>
+            <span>Footer - All Rights reserved.</span>
         );
     }
 }
