@@ -3,13 +3,14 @@
  * @type {Object}
  */
 export default {    
-    loading: false,
+    loading: true,
     adminIds: [],
     admins: {},
     user: {
         authenticated: false,
         id: null,
         email: null,
+        name: null,
         token: null
     },
     error: null

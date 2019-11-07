@@ -7,7 +7,12 @@ export function user(state = initialState.user, action) {
         case actionTypes.auth.LOGIN_SUCCESS: 
             nextState.authenticated = true;
             nextState.email = action.email;
-            return nextState;            
+            return nextState;    
+            
+        case actionTypes.auth.LOGOUT_SUCCESS: 
+            nextState.authenticated = false;
+            nextState.email = 'Guest';
+            return nextState;     
 
         default:
             return state;

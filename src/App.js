@@ -1,39 +1,21 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
-// Store
 import configureStore from './store/configureStore';
 import initialState from './constants/initialState';
+import Homepage from './pages/Homepage';
 
-// Action Creator
-import { loading, loaded } from './actions/loading';
-import { login } from './actions/user';
-import { createError } from './actions/error';
-
-// View
-import HeaderComponent from './components/HeaderComponent';
-import MenuComponent from './components/MenuComponent';
-import MainComponent from './components/MainComponent';
-import FooterComponent from './components/FooterComponent';
-import './App.css';
-
-// config store
+// config store with Store shape defined in initial state
 const store = configureStore(initialState);
 
-// test actions
-console.log('========== Testing actions ===========');
-store.dispatch(loading());
-store.dispatch(loaded());
-store.dispatch(login("homertruong66@gmail.com"));
-store.dispatch(createError("error bla bla", "info"));
-
+// stateless React Element
 function App() {
   return (
-    <div className="App"> 
-      <HeaderComponent />
-      <MenuComponent />
-      <MainComponent />
-      <FooterComponent />      
-    </div>
+    <Provider store={store} >
+      <div className="app"> 
+        <Homepage />     
+      </div>
+    </Provider>
   );
 }
 
