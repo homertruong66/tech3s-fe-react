@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login, logout } from '../actions/user';
 
+import logo from '../logo.jpg';
+
 // stateless PC
 function HeaderComponent (props) {
     
@@ -21,7 +23,7 @@ function HeaderComponent (props) {
                 {/* Logo section */}
                 <div id="logo">
                     <a href="https://facebook.com/tech3s.mentor/" target="_blank" rel="noopener noreferrer" >
-                        <img src="img/logo.jpg" width="66" height="66" alt="Logo" />
+                        <img src={logo} width="66" height="66" alt="Logo" />
                     </a>
                 </div>
             

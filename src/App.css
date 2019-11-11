@@ -6,13 +6,21 @@
   float: right;
 }
 
+.header {
+  height: 99px;
+}
+
 .menu {
-  float: left;
-  width: 200px;
+  float: left; width: 120px; height: 666px; border: solid 1px blue;
+}
+
+.main {
+  margin-left: 123px;
 }
 
 .footer {
   clear: both;
+  text-align: center;
 }
 
 fieldset {

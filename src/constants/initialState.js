@@ -3,9 +3,8 @@
  * @type {Object}
  */
 export default {    
-    loading: true,
-    adminIds: [],
-    admins: {},
+    loading: true,    
+    error: null,
     user: {
         authenticated: false,
         id: null,
@@ -13,5 +12,10 @@ export default {
         name: null,
         token: null
     },
-    error: null
+    admin: {
+        list: null
+    },
+    member: {
+        list: null
+    }        
 };

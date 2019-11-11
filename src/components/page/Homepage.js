@@ -1,11 +1,18 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { loaded } from '../actions/loading';
-import HeaderComponent from '../components/HeaderComponent';
-import MenuComponent from '../components/MenuComponent';
-import MainComponent from '../components/MainComponent';
-import FooterComponent from '../components/FooterComponent';
+import { loaded } from '../../actions/loading';
+import HeaderComponent from '../HeaderComponent';
+import MenuComponent from '../MenuComponent';
+import MainComponent from '../MainComponent';
+import FooterComponent from '../FooterComponent';
+
+// Admin Management
+import AdminComponent from '../admin/AdminComponent';
+
+// Member Management
+import MemberComponent from '../member/MemberComponent';
 
 // stateful PC to use life cycle methods
 class Homepage extends React.Component {
@@ -22,7 +29,11 @@ class Homepage extends React.Component {
         <div className="homepage"> 
           <HeaderComponent />
           <MenuComponent />
-          <MainComponent />
+          <Switch>
+              <Route exact path="/app" component={MainComponent} />
+              <Route path="/app/admins" component={AdminComponent} />
+              <Route path="/app/members" component={MemberComponent} />
+          </Switch>          
           <FooterComponent />      
         </div>    
       )

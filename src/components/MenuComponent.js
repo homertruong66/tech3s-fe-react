@@ -7,17 +7,17 @@ class MenuComponent extends React.Component {
             <div className="menu">
                 <ul>
                     <li>
-                        <NavLink exact activeClassName="active" to="/">
+                        <NavLink exact activeClassName="active" to="/app">
                             Home
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName="active" to="/admins">
+                        <NavLink activeClassName="active" to="/app/admins">
                             Admins
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName="active" to="/members">
+                        <NavLink activeClassName="active" to="/app/members">
                             Members
                         </NavLink>
                     </li>

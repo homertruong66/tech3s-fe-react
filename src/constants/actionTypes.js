@@ -14,5 +14,12 @@ export const admins = {
     CREATE: 'admin/create',
     GET: 'admin/get',
     UPDATE: 'admin/update',    
-    DELETE: 'admin/paginate/update'
+    DELETE: 'admin/delete'
+}
+
+export const members = {
+    SEARCH: 'member/search',    
+    CREATE: 'member/create',
+    GET: 'member/get',
+    UPDATE: 'member/update'    
 }
