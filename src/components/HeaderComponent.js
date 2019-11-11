@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { login, logout } from '../actions/user';
 
 import logo from '../logo.jpg';
 
 // stateless PC
-function HeaderComponent (props) {
+export default function HeaderComponent (props) {
     
     const onLogin = (event) => {        
         props.actions.login('homertruong66@gmail.com', '123456789');
@@ -53,17 +50,3 @@ HeaderComponent.defaultProps = {
     email: 'Guest'
 };
 
-// generate a container that wraps this PC
-export const mapStateToProps = state => {    
-    return {
-        user: state.user
-    };
-};
-
-export const mapDispatchToProps = dispatch => {
-    return {
-        actions: bindActionCreators({ login, logout }, dispatch)
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { loaded } from '../../actions/loading';
-import HeaderComponent from '../HeaderComponent';
+
+// Homepage
+import HeaderContainer from '../../containers/HeaderContainer';
 import MenuComponent from '../MenuComponent';
 import MainComponent from '../MainComponent';
 import FooterComponent from '../FooterComponent';
@@ -15,7 +14,7 @@ import AdminComponent from '../admin/AdminComponent';
 import MemberComponent from '../member/MemberComponent';
 
 // stateful PC to use life cycle methods
-class Homepage extends React.Component {
+export default class Homepage extends React.Component {
   
   componentDidMount() { 
     this.props.actions.loaded();
@@ -27,7 +26,7 @@ class Homepage extends React.Component {
         <div>Loading...</div>
       ) : (
         <div className="homepage"> 
-          <HeaderComponent />
+          <HeaderContainer />
           <MenuComponent />
           <Switch>
               <Route exact path="/app" component={MainComponent} />
@@ -41,17 +40,3 @@ class Homepage extends React.Component {
   }
 }
 
-// generate a container that wraps this PC
-export const mapStateToProps = state => {    
-  return {
-      loading: state.loading
-  };
-};
-
-export const mapDispatchToProps = dispatch => {
-  return {
-      actions: bindActionCreators({ loaded }, dispatch)
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

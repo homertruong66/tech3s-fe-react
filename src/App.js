@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import initialState from './constants/initialState';
 
-import Homepage from "./components/page/Homepage";
+import HomepageContainer from "./containers/HomepageContainer";
 import LoginPage from "./components/page/LoginPage";
 import NotFoundPage from "./components/page/NotFoundPage";
 
@@ -21,7 +21,7 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Switch>
-                    <Route path="/app" component={Homepage} />
+                    <Route path="/app" component={HomepageContainer} />
                     <Route path="/login" component={LoginPage} />
                     <Route component={NotFoundPage} />
                 </Switch>
