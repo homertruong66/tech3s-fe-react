@@ -9,7 +9,7 @@ export default function HeaderComponent (props) {
     let history = useHistory();
     
     const onLogout = (event) => {        
-        props.actions.logout();        
+        props.actions.logout(history);        
         history.push('/login');
     }
 

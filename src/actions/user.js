@@ -1,8 +1,6 @@
 import * as actionTypes from '../constants/actionTypes';
-import history from '../history';
 
-export function login(email, password) { 
-
+export function login(email, password, history) { 
     return (dispatch, getState) => {
         // TODO: login with REST API
         // return API.login(email, password)
@@ -34,15 +32,29 @@ export function loginSuccess(user) {
     };
 }
 
-export function logout() { 
-    return {
-        type: actionTypes.auth.LOGOUT_REQUEST
+export function logout(history) { 
+    return (dispatch, getState) => {
+        // TODO: log out with REST API
+        // return API.logout(email)
+        //     .then(response => response.json())
+        //     .then(user => {
+        //         dispatch({
+        //             type: actionTypes.auth.LOGOUT_SUCCESS,
+        //             data: user
+        //         });
+        //     })
+        //     .catch(err => dispatch(createError(err)));
+        
+        dispatch({
+            type: actionTypes.auth.LOGOUT_SUCCESS
+        });
+        
+        history.push('/login');
     };
 }
 
 export function logoutSuccess(user) { 
     return {
-        type: actionTypes.auth.LOGOUT_SUCCESS,
-        data: user
+        type: actionTypes.auth.LOGOUT_SUCCESS
     };
 }

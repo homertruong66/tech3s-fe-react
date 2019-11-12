@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import history from './history';
 
 import configureStore from './store/configureStore';
 import initialState from './constants/initialState';
@@ -19,7 +18,7 @@ const store = configureStore(initialState);
 function App() {
   return (
     <Provider store={store}>
-        <BrowserRouter history={history}>
+        <BrowserRouter>
             <div className="App">
                 <Switch>
                     <Route path="/app" component={HomepageContainer} />

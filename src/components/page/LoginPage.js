@@ -18,8 +18,7 @@ export default class LoginPage extends React.Component {
     //   return;
     // }
 
-    this.props.actions.login(this.state.email, this.state.password);
-    // this.props.history.push('/app');
+    this.props.actions.login(this.state.email, this.state.password, this.props.history);    
   }
 
   onEmailChange = (event) => {    
