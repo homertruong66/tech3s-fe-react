@@ -6,7 +6,7 @@ export default {
     loading: true,    
     error: null,
     user: {
-        authenticated: false,
+        isAuthenticated: false,
         id: null,
         email: null,
         name: null,

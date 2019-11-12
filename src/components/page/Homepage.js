@@ -3,9 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 
 // Homepage
 import HeaderContainer from '../../containers/HeaderContainer';
-import MenuComponent from '../MenuComponent';
-import MainComponent from '../MainComponent';
-import FooterComponent from '../FooterComponent';
+import MenuComponent from '../layout/MenuComponent';
+import MainComponent from '../layout/MainComponent';
+import FooterComponent from '../layout/FooterComponent';
 
 // Admin Management
 import AdminComponent from '../admin/AdminComponent';

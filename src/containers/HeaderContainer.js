@@ -1,9 +1,9 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import HeaderComponent from '../components/HeaderComponent';
+import HeaderComponent from '../components/layout/HeaderComponent';
 
 // action creators
-import { login, logout } from '../actions/user';
+import { logout } from '../actions/user';
 
 export const mapStateToProps = state => {    
     return {
@@ -13,7 +13,7 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-        actions: bindActionCreators({ login, logout }, dispatch)
+        actions: bindActionCreators({ logout }, dispatch)
     };
 };
 

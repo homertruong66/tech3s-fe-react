@@ -5,7 +5,7 @@ export default class NotFoundPage extends React.Component {
     render() {    
       return (
         <div className="login"> 
-            404 
+            Oops... You are accessing wrong place... <a href="/login">Go back here</a> 
         </div>    
       )
     }
