@@ -24,7 +24,8 @@ export default function HeaderComponent (props) {
         
             {/* Profile section */}
             <div id="logout">
-                <span>Welcome {props.user.email} </span> <button onClick={onLogout}>Logout</button>
+                <span>Welcome {props.user.firstName} {props.user.lastName} </span> 
+                <button onClick={onLogout}>Logout</button>
             </div>    
         </div>
     );

@@ -1,59 +1,41 @@
 import * as actionTypes from '../constants/actionTypes';
+import { createError } from './error';
+import SecurityAPI from '../api/SecurityAPI';
 
 export function login(email, password, history) { 
     return (dispatch, getState) => {
-        // TODO: login with REST API
-        // return API.login(email, password)
-        //     .then(response => response.json())
-        //     .then(user => {
-        //         dispatch({
-        //             type: actionTypes.auth.LOGIN_SUCCESS,
-        //             data: user
-        //         });
-        //     })
-        //     .catch(err => dispatch(createError(err)));
-        
-        dispatch({
-            type: actionTypes.auth.LOGIN_SUCCESS,
-            data: {
-                email,
-                isAuthenticated: true
-            }
-        });
-        
-        history.push('/app');
+        return SecurityAPI.login({username: email, password})                          
+                          .then(userProfile => {
+                            dispatch(loginSuccess(userProfile));
+                            history.push('/app');
+                          })
+                          .catch(err => { 
+                              dispatch(createError(err));
+                          });
     };
 }
 
-export function loginSuccess(user) { 
+export function loginSuccess(userProfile) { 
     return {
         type: actionTypes.auth.LOGIN_SUCCESS,
-        data: user
+        data: userProfile
     };
 }
 
 export function logout(history) { 
     return (dispatch, getState) => {
-        // TODO: log out with REST API
-        // return API.logout(email)
-        //     .then(response => response.json())
-        //     .then(user => {
-        //         dispatch({
-        //             type: actionTypes.auth.LOGOUT_SUCCESS,
-        //             data: user
-        //         });
-        //     })
-        //     .catch(err => dispatch(createError(err)));
-        
-        dispatch({
-            type: actionTypes.auth.LOGOUT_SUCCESS
-        });
-        
-        history.push('/login');
+        return SecurityAPI.logout()
+                          .then(() => {
+                            dispatch(logoutSuccess());
+                            history.push('/login');
+                          })
+                          .catch(err => { 
+                              dispatch(createError(err));
+                          });
     };
 }
 
-export function logoutSuccess(user) { 
+export function logoutSuccess() { 
     return {
         type: actionTypes.auth.LOGOUT_SUCCESS
     };
