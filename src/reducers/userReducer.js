@@ -1,7 +1,7 @@
 import initialState from '../constants/initialState';
 import * as actionTypes from '../constants/actionTypes';
 
-export function user(state = initialState.user, action) {    
+export default (state = initialState.user, action) => {    
     switch (action.type) {
         case actionTypes.auth.LOGIN_SUCCESS: 
             return Object.assign({}, state, action.data);

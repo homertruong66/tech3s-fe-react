@@ -8,11 +8,20 @@ export default {
     user: {        
         id: null,
         email: null,
-        name: null,
+        firstName: null,
+        lastName: null,
         token: null
     },
     admin: {
-        list: null
+        searchCriteria: {
+            sort_name: 'createdAt',
+            is_sort_asc: false,
+            criteria: {},
+            custom_criteria: {},
+        },
+        metaData: {},
+        listAdmins: [],
+        selectedAdmin: null,
     },
     member: {
         list: null

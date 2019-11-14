@@ -1,7 +1,7 @@
 import thunk from 'redux-thunk';
 import { createStore, compose, applyMiddleware} from 'redux';
 
-import rootReducer from '../reducers/root';
+import rootReducer from '../reducers/rootReducer';
 
 let store;
 export default initialState => {

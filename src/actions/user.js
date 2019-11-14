@@ -2,7 +2,7 @@ import * as actionTypes from '../constants/actionTypes';
 import { createError } from './error';
 import SecurityAPI from '../api/SecurityAPI';
 
-export function login(email, password, history) { 
+export const login = (email, password, history) => { 
     return (dispatch, getState) => {
         return SecurityAPI.login({username: email, password})                          
                           .then(userProfile => {
@@ -15,14 +15,14 @@ export function login(email, password, history) {
     };
 }
 
-export function loginSuccess(userProfile) { 
+export const loginSuccess= (userProfile) => { 
     return {
         type: actionTypes.auth.LOGIN_SUCCESS,
         data: userProfile
     };
 }
 
-export function logout(history) { 
+export const logout = (history) => { 
     return (dispatch, getState) => {
         return SecurityAPI.logout()
                           .then(() => {
@@ -35,7 +35,7 @@ export function logout(history) {
     };
 }
 
-export function logoutSuccess() { 
+export const logoutSuccess = () => { 
     return {
         type: actionTypes.auth.LOGOUT_SUCCESS
     };
