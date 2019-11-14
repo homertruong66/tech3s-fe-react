@@ -20,7 +20,7 @@ export default {
             custom_criteria: {},
         },
         metaData: {},
-        listAdmins: [],
+        list: ['1', '2'],
         selectedAdmin: null,
     },
     member: {

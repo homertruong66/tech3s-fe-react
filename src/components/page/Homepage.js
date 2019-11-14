@@ -8,7 +8,7 @@ import MainComponent from '../layout/MainComponent';
 import FooterComponent from '../layout/FooterComponent';
 
 // Admin Management
-import AdminComponent from '../admin/AdminComponent';
+import AdminContainer from '../../containers/AdminContainer';
 
 // Member Management
 import MemberComponent from '../member/MemberComponent';
@@ -30,7 +30,7 @@ export default class Homepage extends React.Component {
           <MenuComponent />
           <Switch>
               <Route exact path="/app" component={MainComponent} />
-              <Route path="/app/admins" component={AdminComponent} />
+              <Route path="/app/admins" component={AdminContainer} />
               <Route path="/app/members" component={MemberComponent} />
           </Switch>          
           <FooterComponent />      
