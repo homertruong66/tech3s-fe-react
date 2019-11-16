@@ -1,6 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+// LoadingPage
+import LoadingPage from './LoadingPage';
+
 // Homepage
 import HeaderContainer from '../../containers/HeaderContainer';
 import MenuComponent from '../layout/MenuComponent';
@@ -23,7 +26,7 @@ export default class Homepage extends React.Component {
   render() {    
     return (
       this.props.loading ? (
-        <div>Loading...</div>
+        <LoadingPage />
       ) : (
         <div className="homepage"> 
           <HeaderContainer />
