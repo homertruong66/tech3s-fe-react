@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import AdminComponent from '../components/admin/AdminComponent';
 
 // action creators
-// import {  } from '../actions/user';
+import { search } from '../actions/admin';
 
 export const mapStateToProps = state => {    
     return {
@@ -13,7 +13,7 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-        actions: bindActionCreators({  }, dispatch)
+        actions: bindActionCreators({ search }, dispatch)
     };
 };
 

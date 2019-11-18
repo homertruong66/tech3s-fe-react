@@ -6,9 +6,9 @@ export default class TableComponent extends React.Component {
     return (
       <div className="table"> 
           <ol>
-            {this.props.list.map(function(item) { 
+            {this.props.searchResult.list.map(function(item, index) { 
               return (
-                <li>{item}</li>
+                <li key={index}>{item.user.email}</li>
               );
             })}
           </ol>

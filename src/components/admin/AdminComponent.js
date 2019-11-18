@@ -8,7 +8,7 @@ export default class AdminComponent extends React.Component {
   render() {    
     return (
       <div className="admin"> 
-          <AdminSearchComponent list={this.props.admin.list} />
+          <AdminSearchComponent searchResult={this.props.admin.searchResult} actions={this.props.actions} />
           <hr/>
           <AdminEditComponent />
       </div>    

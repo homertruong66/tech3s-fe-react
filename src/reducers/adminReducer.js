@@ -3,8 +3,8 @@ import * as actionTypes from '../constants/actionTypes';
 
 export default (state = initialState.admin, action) => {    
     switch (action.type) {
-        case actionTypes.admins.SEARCH: 
-            return { ...state, list: action.data }            
+        case actionTypes.admins.SEARCH_SUCCESS: 
+            return { ...state, searchResult: action.data }            
 
         default:
             return state;

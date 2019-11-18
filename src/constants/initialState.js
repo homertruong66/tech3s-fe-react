@@ -20,10 +20,16 @@ export default {
             custom_criteria: {},
         },
         metaData: {},
-        list: [
-            '1', '2', '3'
-        ],
-        selectedAdmin: null,
+        searchResult: {
+            has_next_page: false,
+            has_previous_page: false,
+            list: [],
+            num_of_pages: 0,
+            page_index: 1,
+            page_size: 10,
+            total_rows: 0
+        },
+        selected: null,
     },
     member: {
         list: null
