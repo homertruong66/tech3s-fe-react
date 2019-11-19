@@ -29,7 +29,15 @@ export default {
             page_size: 10,
             total_rows: 0
         },
-        selected: null,
+        selected: {
+            id: null,
+            email: '',
+            confirmedEmail: '',
+            password: '',
+            confirmedPassword: '',
+            firstName: '',
+            lastName: ''
+        },
     },
     member: {
         list: null

@@ -12,8 +12,7 @@ export default class LoginPage extends React.Component {
     }
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
+  onLogin = (event) => {
     // if (!this.state.valid) {
     //   return;
     // }
@@ -37,21 +36,21 @@ export default class LoginPage extends React.Component {
   
   render() {    
     return (
-      <div className="login"> 
-        <div>
+      <div className="login-form"> 
+        <div className="form-element">
           <label>Email: </label>
           <input 
             type="text" onChange={this.onEmailChange} value={this.state.email}>
           </input> 
         </div>
-        <div>
+        <div className="form-element">
           <label>Password: </label>
           <input 
             type="password" onChange={this.onPasswordChange} value={this.state.password} >
           </input>  
         </div>
-        <div>
-          <input type="submit" onClick={this.onSubmit} value="Login"></input>
+        <div className="form-element">
+          <input type="button" onClick={this.onLogin} value="Login"></input>
         </div>
       </div>    
     )

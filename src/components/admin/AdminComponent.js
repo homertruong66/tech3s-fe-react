@@ -10,7 +10,7 @@ export default class AdminComponent extends React.Component {
       <div className="admin"> 
           <AdminSearchComponent searchResult={this.props.admin.searchResult} actions={this.props.actions} />
           <hr/>
-          <AdminEditComponent />
+          <AdminEditComponent selected={this.props.admin.selected} actions={this.props.actions} />
       </div>    
     )
   }

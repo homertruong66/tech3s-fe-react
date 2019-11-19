@@ -13,14 +13,17 @@ export const auth = {
 }
 
 export const admins = {
-    SEARCH  : 'admin/search',    
+    SEARCH_REQUEST : 'admin/search/request',    
     SEARCH_SUCCESS : 'admin/search/success',
     
-    CREATE  : 'admin/create',
+    CREATE         : 'admin/create',
+    CREATE_REQUEST : 'admin/create/request',
     
-    GET     : 'admin/get',
-    UPDATE  : 'admin/update',    
-    DELETE  : 'admin/delete'
+    GET_REQUEST    : 'admin/get/request',
+    GET_SUCCESS    : 'admin/get/success',    
+    UPDATE_REQUEST : 'admin/update/request',
+
+    DELETE_REQUEST : 'admin/delete/request'
 }
 
 export const members = {

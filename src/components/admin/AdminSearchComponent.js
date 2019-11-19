@@ -7,8 +7,9 @@ export default class AdminSearchComponent extends React.Component {
   constructor(props) {
     super(props);
 
+    // internal UI state
     this.state = {
-      email: ''
+      email: null
     }
   }
 
@@ -20,10 +21,16 @@ export default class AdminSearchComponent extends React.Component {
   }
 
   onSearch = (event) => {
-    let searchCriteria = {
-      custom_criteria: this.state
+    let searchCriteria = {};
+    if (this.state.email != null) {
+      searchCriteria.custom_criteria = this.state;
     }
-    this.props.actions.search(searchCriteria);
+    
+    this.props.actions.searchRequest(searchCriteria);
+  }
+
+  onCreate = (event) => {    
+    this.props.actions.create();
   }
   
   render() {    
@@ -35,6 +42,8 @@ export default class AdminSearchComponent extends React.Component {
             <button onClick={this.onSearch} >Search</button>  
           </div>
           <TableComponent searchResult={this.props.searchResult} />
+
+          <button onClick={this.onCreate} >Create</button>  
       </div>    
     )
   }

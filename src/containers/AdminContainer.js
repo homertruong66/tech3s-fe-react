@@ -1,9 +1,17 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import AdminComponent from '../components/admin/AdminComponent';
 
-// action creators
-import { search } from '../actions/admin';
+import AdminComponent from '../components/admin/AdminComponent';
+import * as adminActionCreators from '../actions/admin';
+
+const actionCreators = { 
+    searchRequest   : adminActionCreators.searchRequest, 
+    create          : adminActionCreators.create, 
+    createRequest   : adminActionCreators.createRequest, 
+    getRequest      : adminActionCreators.getRequest, 
+    updateRequest   : adminActionCreators.updateRequest, 
+    deleteRequest   : adminActionCreators.deleteRequest 
+}; 
 
 export const mapStateToProps = state => {    
     return {
@@ -13,7 +21,7 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
     return {
-        actions: bindActionCreators({ search }, dispatch)
+        actions: bindActionCreators(actionCreators, dispatch)
     };
 };
 
