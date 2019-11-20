@@ -1,5 +1,8 @@
 import React from 'react';
 
+// wrapped by AdminContainer;
+
+// children
 import AdminSearchComponent from './AdminSearchComponent';
 import AdminEditComponent from './AdminEditComponent';
 

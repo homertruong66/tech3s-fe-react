@@ -7,8 +7,8 @@ import initialState from './constants/initialState';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 
-import HomepageContainer from "./containers/HomepageContainer";
-import LoginPageContainer from "./containers/LoginPageContainer";
+import HomepageContainer from "./components/containers/HomepageContainer";
+import LoginPageContainer from "./components/containers/LoginPageContainer";
 import NotFoundPage from "./components/page/NotFoundPage";
 import LoadingPage from "./components/page/LoadingPage";
 

@@ -4,7 +4,11 @@ import { useHistory } from "react-router-dom";
 
 import logo from '../../logo.jpg';
 
-// stateless PC
+// wrapped by HeaderContainer;
+
+// children
+
+// stateless Presentation Component
 export default function HeaderComponent (props) {
     let history = useHistory();
     

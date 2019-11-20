@@ -13,6 +13,7 @@ export default class LoginPage extends React.Component {
   }
 
   onLogin = (event) => {
+    // TODO: validate state
     // if (!this.state.valid) {
     //   return;
     // }

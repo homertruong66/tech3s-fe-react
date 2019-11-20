@@ -1,9 +1,16 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Homepage from '../components/page/Homepage';
 
-// action creators
-import { loaded } from '../actions/loading';
+// Presentation Component
+import Homepage from '../page/Homepage';
+
+// Action Creators
+import * as ac from '../../actions/loading';
+
+const actionCreators = { 
+  loading : ac.loading,
+  loaded  : ac.loaded
+};
 
 export const mapStateToProps = state => {    
   return {
@@ -13,7 +20,7 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
   return {
-      actions: bindActionCreators({ loaded }, dispatch)
+      actions: bindActionCreators(actionCreators, dispatch)
   };
 };
 

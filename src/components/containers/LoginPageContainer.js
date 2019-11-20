@@ -1,9 +1,15 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import LoginPage from '../components/page/LoginPage';
 
-// action creators
-import { login } from '../actions/user';
+// Presentation Component
+import LoginPage from '../page/LoginPage';
+
+// Action Creators
+import * as ac from '../../actions/user';
+
+const actionCreators = { 
+  login : ac.login
+};
 
 export const mapStateToProps = state => {    
   return {
@@ -13,7 +19,7 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
   return {
-      actions: bindActionCreators({ login }, dispatch)
+      actions: bindActionCreators(actionCreators, dispatch)
   };
 };
 
