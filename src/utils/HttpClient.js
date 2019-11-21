@@ -2,7 +2,7 @@ import axios from 'axios';
 import { get } from 'lodash';
 
 import { store } from '../App';
-import { logoutSuccess } from '../actions/user';
+import { logoutSuccess } from '../actions/auth';
 
 class HttpClient {
     

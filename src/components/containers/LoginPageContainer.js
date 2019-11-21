@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import LoginPage from '../page/LoginPage';
 
 // Action Creators
-import * as ac from '../../actions/user';
+import * as ac from '../../actions/auth';
 
 const actionCreators = { 
   login : ac.login
@@ -13,7 +13,7 @@ const actionCreators = {
 
 export const mapStateToProps = state => {    
   return {
-      user: state.user
+      auth: state.auth
   };
 };
 

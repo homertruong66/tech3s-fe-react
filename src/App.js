@@ -39,7 +39,7 @@ function App() {
 }
 
 function checkAuthentication() {
-    const { user: { token } } = store.getState();        
+    const { auth: { token } } = store.getState();        
     return (
         token != null ? (
             <HomepageContainer />

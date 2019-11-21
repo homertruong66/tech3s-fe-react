@@ -1,5 +1,5 @@
 import * as actionTypes from '../constants/actionTypes';
-import SecurityAPI from '../api/SecurityAPI';
+import SecurityAPI from '../api/AuthAPI';
 
 export const createError = (err) => { 
     return {

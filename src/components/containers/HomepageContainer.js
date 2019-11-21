@@ -5,16 +5,13 @@ import { connect } from 'react-redux';
 import Homepage from '../page/Homepage';
 
 // Action Creators
-import * as ac from '../../actions/loading';
+// import * as ac from '../../actions';
 
 const actionCreators = { 
-  loading : ac.loading,
-  loaded  : ac.loaded
 };
 
 export const mapStateToProps = state => {    
   return {
-      loading: state.loading
   };
 };
 
