@@ -1,5 +1,4 @@
-export const app = {
-    ERROR   : 'app/error',
+export const app = {    
     LOADED  : 'app/loaded',
     LOADING : 'app/loading'
 }
@@ -9,7 +8,9 @@ export const auth = {
     LOGIN_SUCCESS   : 'auth/login/success',
 
     LOGOUT_REQUEST  : 'auth/logout/request',
-    LOGOUT_SUCCESS  : 'auth/logout/success'
+    LOGOUT_SUCCESS  : 'auth/logout/success',
+
+    ERROR : 'auth/error',
 }
 
 export const admins = {
@@ -23,7 +24,9 @@ export const admins = {
     GET_SUCCESS    : 'admin/get/success',    
     UPDATE_REQUEST : 'admin/update/request',
 
-    DELETE_REQUEST : 'admin/delete/request'
+    DELETE_REQUEST : 'admin/delete/request',
+
+    ERROR : 'admin/error',
 }
 
 export const members = {

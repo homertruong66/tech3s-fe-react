@@ -41,7 +41,7 @@ export default class AdminSearchComponent extends React.Component {
             <label>Email: </label> <input type="text" name="email" onChange={this.onEmailChange} /> 
             <button onClick={this.onSearch} >Search</button>  
           </div>
-          <TableComponent searchResult={this.props.searchResult} />
+          <TableComponent searchResult={this.props.searchResult} actions={this.props.actions} />
 
           <button onClick={this.onCreate} >Create</button>  
       </div>    

@@ -3,14 +3,17 @@
  * @type {Object}
  */
 export default {    
-    loading: true,    
-    error: null,
+    loading: true,        
     user: {        
         id: null,
         email: null,
-        firstName: null,
-        lastName: null,
-        token: null
+        first_name: null,
+        last_name: null,
+        token: null,
+        error: {
+            error_code: null,
+            response: { code: null, message: null }
+        }
     },
     admin: {
         searchCriteria: {
@@ -32,12 +35,16 @@ export default {
         selected: {
             id: null,
             email: '',
-            confirmedEmail: '',
+            confirmed_email: '',
             password: '',
-            confirmedPassword: '',
-            firstName: '',
-            lastName: ''
+            confirmed_password: '',
+            first_name: '',
+            last_name: ''
         },
+        error: {
+            error_code: null,
+            response: { code: null, message: null }
+        }
     },
     member: {
         list: null

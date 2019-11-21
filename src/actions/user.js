@@ -1,6 +1,12 @@
 import * as actionTypes from '../constants/actionTypes';
-import { createError } from './error';
 import SecurityAPI from '../api/SecurityAPI';
+
+export const createError = (err) => { 
+    return {
+        type: actionTypes.auth.ERROR,
+        data: err
+    };
+}
 
 export const login = (email, password, history) => { 
     return (dispatch, getState) => {
@@ -15,7 +21,7 @@ export const login = (email, password, history) => {
     };
 }
 
-export const loginSuccess= (userProfile) => { 
+export const loginSuccess = (userProfile) => { 
     return {
         type: actionTypes.auth.LOGIN_SUCCESS,
         data: userProfile

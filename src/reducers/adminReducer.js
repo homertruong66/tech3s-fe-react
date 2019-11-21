@@ -7,10 +7,13 @@ export default (state = initialState.admin, action) => {
             return { ...state, searchResult: action.data } 
             
         case actionTypes.admins.CREATE: 
-            return { ...state, selected: initialState.admin.selected } 
+            return { ...state, selected: initialState.admin.selected, error: initialState.admin.error } 
 
-        case actionTypes.admins.GET_REQUEST: 
+        case actionTypes.admins.GET_SUCCESS: 
             return { ...state, selected: action.data } 
+
+        case actionTypes.admins.ERROR: 
+            return { ...state, error: action.data } 
 
         default:
             return state;

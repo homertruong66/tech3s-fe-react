@@ -1,6 +1,12 @@
 import * as actionTypes from '../constants/actionTypes';
-import { createError } from './error';
 import AdminAPI from '../api/AdminAPI';
+
+export const createError = (err) => { 
+    return {
+        type: actionTypes.admins.ERROR,
+        data: err
+    };
+}
 
 export const searchRequest = (data) => { 
     return (dispatch, getState) => {
@@ -32,7 +38,7 @@ export const createRequest = (data) => {
         return AdminAPI.create(data)                          
                         .then(dto => {
                             dispatch(searchRequest({}));
-                            dispatch(create({}));
+                            dispatch(create());
                         })
                         .catch(err => { 
                             dispatch(createError(err));
@@ -64,6 +70,7 @@ export const updateRequest = (id, data) => {
         return AdminAPI.update(id, data)                          
                         .then(dto => {
                             dispatch(searchRequest({}));
+                            dispatch(create());
                         })
                         .catch(err => { 
                             dispatch(createError(err));
@@ -73,9 +80,10 @@ export const updateRequest = (id, data) => {
 
 export const deleteRequest = (id) => { 
     return (dispatch, getState) => {
-        return AdminAPI.delete(id)                          
+        return AdminAPI.del(id)                          
                         .then(() => {
                             dispatch(searchRequest({}));
+                            dispatch(create());
                         })
                         .catch(err => { 
                             dispatch(createError(err));

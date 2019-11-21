@@ -9,6 +9,9 @@ export default (state = initialState.user, action) => {
         case actionTypes.auth.LOGOUT_SUCCESS: 
             return initialState.user;
 
+        case actionTypes.auth.ERROR: 
+            return { ...state, error: action.data };
+
         default:
             return state;
     }

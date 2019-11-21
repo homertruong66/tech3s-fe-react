@@ -14,7 +14,7 @@
   float: left; width: 120px; height: 666px; border: solid 1px blue;
 }
 
-.main {
+.main, .admin, .member {
   margin-left: 123px;
 }
 
@@ -47,7 +47,7 @@ input, select, textarea {
   width: 200px;
 }
 
-.active{
+.active, .error{
   color:red;
 }
 

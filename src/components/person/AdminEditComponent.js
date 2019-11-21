@@ -1,111 +1,114 @@
 import React from 'react';
 
+// this is an uncontrolled form
 export default class AdminEditComponent extends React.Component {
   
   constructor(props) {
     super(props);
 
-    // internal UI state
-    this.state = {
-      email: '',
-      confirmed_email: '',
-      password: '',
-      confirmed_password: '',
-      first_name: '',
-      last_name: ''
-    };
+    this.emailInput = React.createRef();
+    this.confirmedEmailInput = React.createRef();
+    this.passwordInput = React.createRef();
+    this.confirmedPasswordInput = React.createRef();
+    this.firstNameInput = React.createRef();
+    this.lastNameInput = React.createRef();
   }
 
-  onEmailChange = (event) => {    
-    event.persist();  // remove synthetic event
-    this.setState(function(prevState, props) {
-      return { ...prevState, email: event.target.value };
-    });
-  }
-
-  onConfirmedEmailChange = (event) => {    
-    event.persist(); 
-    this.setState(function(prevState, props) {
-      return { ...prevState, confirmed_email: event.target.value };
-    });
-  }
-
-  onPasswordChange = (event) => {
-    event.persist();
-    this.setState(function(prevState, props) {
-      return { ...prevState, password: event.target.value };
-    });
-  }
-
-  onConfirmedPasswordChange = (event) => {    
-    event.persist(); 
-    this.setState(function(prevState, props) {
-      return { ...prevState, confirmed_password: event.target.value };
-    });
-  }
-
-  onFirstNameChange = (event) => {
-    event.persist();
-    this.setState(function(prevState, props) {
-      return { ...prevState, first_name: event.target.value };
-    });
-  }
-
-  onLastNameChange = (event) => {
-    event.persist();
-    this.setState(function(prevState, props) {
-      return { ...prevState, last_name: event.target.value };
-    });
+  componentDidUpdate() {
+    let selected = this.props.selected;
+    this.emailInput.current.value = selected.user? selected.user.email : '';
+    this.confirmedEmailInput.current.value = selected.user? selected.user.email : '';
+    this.passwordInput.current.value = selected.user? selected.user.password : '';
+    this.confirmedPasswordInput.current.value = selected.user? selected.user.password : '';
+    this.firstNameInput.current.value = selected.first_name;
+    this.lastNameInput.current.value = selected.last_name;    
   }
 
   onSave = (event) => {    
+    let viewModel = {      
+      first_name: this.firstNameInput.current.value,
+      last_name: this.lastNameInput.current.value
+    }
+
     if (this.props.selected.id == null) {
-      this.props.actions.createRequest(this.state);
+      this.props.actions.createRequest({
+        ...viewModel,
+        email: this.emailInput.current.value, 
+        confirmed_email: this.confirmedEmailInput.current.value,
+        password: this.passwordInput.current.value,
+        confirmed_password: this.confirmedPasswordInput.current.value        
+      });
     }
     else {
-      this.props.actions.updateRequest(this.props.selected.id, this.state);
+      this.props.actions.updateRequest(this.props.selected.id, viewModel);
     }
   }
 
   render() {    
-    return (
+    return (      
       <div className="admin-edit-form"> 
+        {this.props.error.error_code != null?
+          <div className="error">
+            <p>Http Code: {this.props.error.error_code}</p>
+            <p>Error Detail: ("code": {this.props.error.response.code}, 
+                              "message": {this.props.error.response.message})</p>
+          </div>
+          :
+          <div className="error">
+          </div>
+        }
+
         <div className="form-element">
           <label>Email: </label>
-          <input 
-            type="text" onChange={this.onEmailChange} value={this.state.email}>
-          </input> 
+          {this.props.selected.id == null?
+            <input type="text" ref={this.emailInput}></input> 
+            : 
+            <input type="text" ref={this.emailInput} disabled={true}></input>   
+          }          
         </div>
-        <div className="form-element">
-          <label>Confirmed Email: </label>
-          <input 
-            type="text" onChange={this.onConfirmedEmailChange} value={this.state.confirmed_email}>
-          </input> 
-        </div>      
-        <div className="form-element">
-          <label>Password: </label>
-          <input 
-            type="password" onChange={this.onPasswordChange} value={this.state.password}>
-          </input> 
-        </div>  
-        <div className="form-element">
-          <label>Confirmed Password: </label>
-          <input 
-            type="password" onChange={this.onConfirmedPasswordChange} value={this.state.confirmed_password}>
-          </input> 
-        </div> 
+        
+        {this.props.selected.id == null?
+          <div className="form-element">
+            <label>Confirmed Email: </label>
+            <input type="text" ref={this.confirmedEmailInput}></input> 
+          </div>      
+          : 
+          <div className="form-element">
+            <input type="hidden" ref={this.confirmedEmailInput}></input> 
+          </div>
+        }        
+
+        {this.props.selected.id == null?
+          <div className="form-element">
+            <label>Password: </label>
+            <input type="password" ref={this.passwordInput}></input> 
+          </div>          
+          :
+          <div className="form-element">          
+            <input type="hidden" ref={this.passwordInput}></input> 
+          </div> 
+        }
+
+        {this.props.selected.id == null?
+          <div className="form-element">
+            <label>Confirmed Password: </label>
+            <input type="password" ref={this.confirmedPasswordInput}></input> 
+          </div> 
+          :
+          <div className="form-element">          
+            <input type="hidden" ref={this.confirmedPasswordInput}></input> 
+          </div> 
+        }
+
         <div className="form-element">
           <label>First Name: </label>
-          <input 
-            type="text" onChange={this.onFirstNameChange} value={this.state.first_name}>
-          </input> 
+          <input type="text" ref={this.firstNameInput}></input>  
         </div>
         <div className="form-element">
           <label>Last Name: </label>
-          <input 
-            type="text" onChange={this.onLastNameChange} value={this.state.last_name}>
-          </input> 
+          <input type="text" ref={this.lastNameInput}></input> 
         </div>
+
         <div className="form-element">
           <input type="button" onClick={this.onSave} value="Save"></input>
         </div>

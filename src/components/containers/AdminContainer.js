@@ -18,7 +18,7 @@ const actionCreators = {
 
 export const mapStateToProps = state => {    
     return {
-        admin: state.admin
+        admin: state.admin        
     };
 };
 
