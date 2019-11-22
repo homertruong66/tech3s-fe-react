@@ -42,7 +42,8 @@ export default class AdminSearchComponent extends React.Component {
   render() {    
     return (
       <div className="admin-search"> 
-          <p><b>Admin Search</b></p>
+        <fieldset>
+          <legend><b>Admin Search</b></legend>
           <div>
             <label>Email: </label> <input type="text" name="email" onChange={this.onEmailChange} /> 
             <button onClick={this.onSearch} >Search</button>  
@@ -54,6 +55,7 @@ export default class AdminSearchComponent extends React.Component {
           />
 
           <button onClick={this.onCreate} >Create</button>  
+        </fieldset>
       </div>    
     )
   }
