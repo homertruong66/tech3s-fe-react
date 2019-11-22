@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Input props: 'list', 'formatRowItem', 'actions' (getRequest & deleteRequest)
+ */
 export default class TableComponent extends React.Component {
   
   onUpdate = (id) => {
@@ -14,11 +17,12 @@ export default class TableComponent extends React.Component {
     const me = this;
     return (
       <div className="table"> 
-          {this.props.searchResult.list.map(function(item, index) { 
+          {this.props.list.map(function(item, index) { 
             return (
-              <p key={index}>{index+1}) {item.user.email} - {item.first_name} {item.last_name} ->  
+              <p key={index}>{index+1}) {me.props.formatRowItem(item)} ->  
                  <button onClick={() => me.onUpdate(item.id)}>Update</button> 
-                 <button onClick={() => me.onDelete(item.id)}>Delete</button></p>
+                 <button onClick={() => me.onDelete(item.id)}>Delete</button>
+              </p>
             );
           })} 
       </div>    

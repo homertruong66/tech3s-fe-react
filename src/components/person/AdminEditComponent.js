@@ -12,6 +12,7 @@ export default class AdminEditComponent extends React.Component {
     this.confirmedPasswordInput = React.createRef();
     this.firstNameInput = React.createRef();
     this.lastNameInput = React.createRef();
+    this.phoneInput = React.createRef();
   }
 
   componentDidUpdate() {
@@ -22,12 +23,14 @@ export default class AdminEditComponent extends React.Component {
     this.confirmedPasswordInput.current.value = selected.user? selected.user.password : '';
     this.firstNameInput.current.value = selected.first_name;
     this.lastNameInput.current.value = selected.last_name;    
+    this.phoneInput.current.value = selected.phone;    
   }
 
   onSave = (event) => {    
     let viewModel = {      
       first_name: this.firstNameInput.current.value,
-      last_name: this.lastNameInput.current.value
+      last_name: this.lastNameInput.current.value,
+      phone: this.phoneInput.current.value
     }
 
     if (this.props.selected.id == null) {
@@ -47,6 +50,7 @@ export default class AdminEditComponent extends React.Component {
   render() {    
     return (      
       <div className="admin-edit-form"> 
+        <p><b>Admin Edit(Create/Update)</b></p>
         {this.props.error.error_code != null?
           <div className="error">
             <p>Http Code: {this.props.error.error_code}</p>
@@ -107,6 +111,10 @@ export default class AdminEditComponent extends React.Component {
         <div className="form-element">
           <label>Last Name: </label>
           <input type="text" ref={this.lastNameInput}></input> 
+        </div>
+        <div className="form-element">
+          <label>Phone: </label>
+          <input type="text" ref={this.phoneInput}></input> 
         </div>
 
         <div className="form-element">
