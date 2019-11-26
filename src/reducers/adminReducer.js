@@ -4,7 +4,7 @@ import * as actionTypes from '../constants/actionTypes';
 export default (state = initialState.admin, action) => {    
     switch (action.type) {
         case actionTypes.admins.SEARCH_SUCCESS: 
-            return { ...state, searchResult: action.data } 
+            return { ...state, searchResult: action.data, error: initialState.admin.error  } 
             
         case actionTypes.admins.CREATE: 
             return { ...state, selected: initialState.admin.selected, error: initialState.admin.error } 

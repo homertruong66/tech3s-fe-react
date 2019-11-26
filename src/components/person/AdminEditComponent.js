@@ -1,6 +1,9 @@
 import React from 'react';
 
 // this is an uncontrolled form
+/**
+ * Input props: 'selected', 'actions' (createRequest, updateRequest), 'error'
+ */
 export default class AdminEditComponent extends React.Component {
   
   constructor(props) {
@@ -21,15 +24,15 @@ export default class AdminEditComponent extends React.Component {
     this.confirmedEmailInput.current.value = selected.user? selected.user.email : '';
     this.passwordInput.current.value = selected.user? selected.user.password : '';
     this.confirmedPasswordInput.current.value = selected.user? selected.user.password : '';
-    this.firstNameInput.current.value = selected.first_name;
-    this.lastNameInput.current.value = selected.last_name;    
+    this.firstNameInput.current.value = selected.firstName;
+    this.lastNameInput.current.value = selected.lastName;    
     this.phoneInput.current.value = selected.user? selected.user.phone : '';    
   }
 
   onSave = (event) => {    
     let viewModel = {      
-      first_name: this.firstNameInput.current.value,
-      last_name: this.lastNameInput.current.value,
+      firstName: this.firstNameInput.current.value,
+      lastName: this.lastNameInput.current.value,
       phone: this.phoneInput.current.value
     }
 
@@ -37,9 +40,9 @@ export default class AdminEditComponent extends React.Component {
       this.props.actions.createRequest({
         ...viewModel,
         email: this.emailInput.current.value, 
-        confirmed_email: this.confirmedEmailInput.current.value,
+        confirmedEmail: this.confirmedEmailInput.current.value,
         password: this.passwordInput.current.value,
-        confirmed_password: this.confirmedPasswordInput.current.value        
+        confirmedPassword: this.confirmedPasswordInput.current.value        
       });
     }
     else {
@@ -52,9 +55,9 @@ export default class AdminEditComponent extends React.Component {
       <div className="admin-edit-form"> 
         <fieldset>
           <legend><b>Admin Edit(Create/Update)</b></legend>        
-          {this.props.error.error_code != null?
+          {this.props.error.errorCode != null?
             <div className="error">
-              <p>Http Code: {this.props.error.error_code}</p>
+              <p>Http Code: {this.props.error.errorCode}</p>
               <p>Error Detail: ("code": {this.props.error.response.code}, 
                                 "message": {this.props.error.response.message})</p>
             </div>

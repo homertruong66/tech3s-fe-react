@@ -10,7 +10,7 @@ class HttpClient {
     this.axiosInstance = axios.create({
       baseURL: 'http://localhost:9090',
       headers: {    // case-sensitive        
-        'X-Security-Token': localStorage.getItem('access_token'),
+        'X-Security-Token': localStorage.getItem('accessToken'),
         'Content-Type': 'application/json',
       },
       timeout: 3000,
@@ -32,13 +32,13 @@ class HttpClient {
   getToken = () => this.axiosInstance.defaults.headers['X-Security-Token'];
 
   setToken = token => {
-    localStorage.setItem('access_token', token);
+    localStorage.setItem('accessToken', token);
     this.axiosInstance.defaults.headers['X-Security-Token'] = token;
   };
 
   clearToken = () => {
     this.axiosInstance.defaults.headers['X-Security-Token'] = '';
-    localStorage.removeItem('access_token');
+    localStorage.removeItem('accessToken');
   };
 
   handleResponse = response => {
@@ -82,7 +82,7 @@ class HttpClient {
     }
 
     const finalError = new Error(message || error.message);
-    finalError.error_code = code || response.status;
+    finalError.errorCode = code || response.status;
     finalError.response = response.data || error.response;
 
     return Promise.reject(finalError);

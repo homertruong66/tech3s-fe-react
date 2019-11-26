@@ -6,6 +6,9 @@ import React from 'react';
 import AdminSearchComponent from './AdminSearchComponent';
 import AdminEditComponent from './AdminEditComponent';
 
+/**
+ * Input props: 'admin', 'actions' 
+ */
 export default class AdminComponent extends React.Component {
   
   render() {    
@@ -13,6 +16,7 @@ export default class AdminComponent extends React.Component {
       <div className="admin"> 
         <h2>Admin Management Page</h2>
         <table>
+        <tbody>
           <tr>
             <td>
               <AdminSearchComponent searchResult={this.props.admin.searchResult} actions={this.props.actions} />          
@@ -24,6 +28,7 @@ export default class AdminComponent extends React.Component {
                 error = {this.props.admin.error} />
             </td>
           </tr>
+        </tbody>
         </table>
       </div>    
     )

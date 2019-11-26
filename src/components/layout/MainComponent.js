@@ -7,6 +7,7 @@ class MainComponent extends React.Component {
             <div className="main">
                 <h1 align="center">TECH3S Web Application Skeleton using React, Redux and REST APIs</h1>
                 <table>
+                <tbody>
                     <tr>
                         <td>
                             <span><b>1> Frontend</b></span><br/>
@@ -60,6 +61,7 @@ class MainComponent extends React.Component {
                             </ul>
                         </td>
                     </tr>
+                </tbody>
                 </table>
             </div>
         );

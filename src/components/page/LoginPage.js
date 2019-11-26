@@ -38,7 +38,7 @@ export default class LoginPage extends React.Component {
   render() {    
     return (
       <div className="login-form"> 
-        {this.props.auth.error.error_code != null?
+        {this.props.auth.error.errorCode != null?
           <div className="error">
             <p>"Email or password is incorrect!"</p>
           </div>
